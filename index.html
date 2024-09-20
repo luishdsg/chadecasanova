@@ -10,6 +10,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -56,8 +59,8 @@
         border-radius: 10px;
         position: relative;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.808);
-        width: 300px;
-        max-width: 100%;
+        width: 100%;
+        max-width: 400px;
         transform: translateY(-50px);
         transition: transform 0.5s ease, opacity 0.5s ease;
         /* Transição de movimento e fade */
@@ -81,8 +84,10 @@
     }
 
     .logo {
-        max-width: 150px;
+        max-width: 250px;
         display: block;
+        margin-left: 1em;
+        height: auto;
     }
 
     small {
@@ -129,6 +134,18 @@
     }
 </style>
 <style>
+    .s-regular {
+        font-family: "s", serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .s-bold {
+        font-family: "Nanum Myeongjo", serif;
+        font-weight: 700;
+        font-style: normal;
+    }
+
     .p-light {
         font-family: "Poppins", sans-serif;
         font-weight: 300;
@@ -151,7 +168,7 @@
         margin-top: 10em
     }
 
-    .shadow {
+    .shadow-text {
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.644);
     }
 
@@ -287,38 +304,38 @@
 
 
     .checkbox-container {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
-        .checkbox-item {
-            display: flex;
-            align-items: center;
-        }
+    .checkbox-item {
+        display: flex;
+        align-items: center;
+    }
 
-        .checkbox-item input[type="checkbox"] {
-            margin-right: 10px;
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
-        }
+    .checkbox-item input[type="checkbox"] {
+        margin-right: 10px;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
 
-        .checkbox-item label {
-            font-size: 16px;
-            color: #ffffff;
-            cursor: pointer;
-        }
+    .checkbox-item label {
+        font-size: 16px;
+        color: #ffffff;
+        cursor: pointer;
+    }
 
-        .checkbox-item:hover label {
-            color: #007BFF;
-        }
+    .checkbox-item:hover label {
+        color: #007BFF;
+    }
 </style>
 
 <body>
@@ -340,7 +357,9 @@
     <header class="header-main back w-100 h-100vh">
         <div class="row">
             <div class="col mt-10 text-center">
-                <p class="h1 shadow text-light p-bold">Chá de casa nova </p>
+                <p class="h1 shadow-text text-light mt-5 s-bold">Chá de casa nova </p>
+                <p class="h1 shadow-text text-light s-bold">QC 01 CONJ. M CASA 01 <BR> SANTA-MARIA-DF</p>
+                    <p class="h1 shadow-text text-light s-bold">11 de setembro de 2021 as 11:20am</p>
             </div>
         </div>
     </header>
@@ -761,53 +780,53 @@
 
     const apiURL = 'http://localhost:3000/checkboxes';
     const checkboxTitles = [
-            'Aparelho de jantar',
-            'Batedeira',
-            'Conjunto de pote de tempero',
-            'Conjunto para sobremesa',
-            'Conjunto de taças',
-            'Conjunto de Utensílios de cozinha',
-            'Conjunto de bacias',
-            'Grill',
-            'Jogo de toalha',
-            'Jogo de pano de prato',
-            'Jogo de cama',
-            'Jogo de tábuas de cortes',
-            'Jogo de potes herméticos',
-            'Kit Ferramentas',
-            'Liquidificador',
-            'Petisqueira de Vidro',
-            'Refratários',
-            'Tapetes'
-        ];
+        'Aparelho de jantar',
+        'Batedeira',
+        'Conjunto de pote de tempero',
+        'Conjunto para sobremesa',
+        'Conjunto de taças',
+        'Conjunto de Utensílios de cozinha',
+        'Conjunto de bacias',
+        'Grill',
+        'Jogo de toalha',
+        'Jogo de pano de prato',
+        'Jogo de cama',
+        'Jogo de tábuas de cortes',
+        'Jogo de potes herméticos',
+        'Kit Ferramentas',
+        'Liquidificador',
+        'Petisqueira de Vidro',
+        'Refratários',
+        'Tapetes'
+    ];
     // Função para criar os checkboxes
     function createCheckboxes(checkboxes) {
-            const container = document.getElementById('checkbox-container');
+        const container = document.getElementById('checkbox-container');
 
-            checkboxes.forEach((checkbox, index) => {
-                const checkboxElement = document.createElement('input');
-                checkboxElement.type = 'checkbox';
-                checkboxElement.id = `checkbox-${checkbox.id}`;
-                checkboxElement.checked = checkbox.checked;
+        checkboxes.forEach((checkbox, index) => {
+            const checkboxElement = document.createElement('input');
+            checkboxElement.type = 'checkbox';
+            checkboxElement.id = `checkbox-${checkbox.id}`;
+            checkboxElement.checked = checkbox.checked;
 
-                // Prevenir o comportamento padrão de recarregar a página
-                checkboxElement.addEventListener('change', (event) => {
-                    event.preventDefault();
-                    updateCheckbox(checkbox.id, event.target.checked);
-                });
-
-                const label = document.createElement('label');
-                label.htmlFor = `checkbox-${checkbox.id}`;
-                label.textContent = checkboxTitles[index]; // Título apropriado
-
-                const div = document.createElement('div');
-                div.classList.add('checkbox-item');
-                div.appendChild(checkboxElement);
-                div.appendChild(label);
-
-                container.appendChild(div);
+            // Prevenir o comportamento padrão de recarregar a página
+            checkboxElement.addEventListener('change', (event) => {
+                event.preventDefault();
+                updateCheckbox(checkbox.id, event.target.checked);
             });
-        }
+
+            const label = document.createElement('label');
+            label.htmlFor = `checkbox-${checkbox.id}`;
+            label.textContent = checkboxTitles[index]; // Título apropriado
+
+            const div = document.createElement('div');
+            div.classList.add('checkbox-item');
+            div.appendChild(checkboxElement);
+            div.appendChild(label);
+
+            container.appendChild(div);
+        });
+    }
 
     // Função para atualizar o estado do checkbox no servidor
     function updateCheckbox(id, checked) {
@@ -822,24 +841,24 @@
             .then(data => console.log(`Checkbox ${id} atualizado`, data))
             .catch(error => console.error('Erro ao atualizar o checkbox:', error));
     }
-  // Função para carregar os checkboxes
-  function loadCheckboxes() {
-            fetch(apiURL)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Erro ao carregar os checkboxes');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log("Dados carregados:", data);
-                    createCheckboxes(data);
-                })
-                .catch(error => console.error('Erro ao carregar os checkboxes:', error));
-        }
+    // Função para carregar os checkboxes
+    function loadCheckboxes() {
+        fetch(apiURL)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao carregar os checkboxes');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Dados carregados:", data);
+                createCheckboxes(data);
+            })
+            .catch(error => console.error('Erro ao carregar os checkboxes:', error));
+    }
 
-        // Carrega os checkboxes ao iniciar a página
-        loadCheckboxes();
+    // Carrega os checkboxes ao iniciar a página
+    loadCheckboxes();
 </script>
 
 
