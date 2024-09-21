@@ -777,8 +777,8 @@
         modal.style.display = 'flex';  // Mostra o modal antes da animação
     });
 
-    const apiURL = 'https://apicasa-2.onrender.com/item/66ee2b804bf4f95f5865e58e';
-    const checkboxTitles = [
+    const apiURL = 'https://apicasa.onrender.com/item/66ee2b804bf4f95f5865e58e';
+const checkboxTitles = [
     'Aparelho de jantar',
     'Batedeira',
     'Conjunto de pote de tempero',
@@ -810,22 +810,23 @@ async function createCheckboxes() {
             throw new Error('Erro ao carregar os checkboxes');
         }
 
-        const checkboxes = await response.json();
+        const data = await response.json();
 
-        checkboxes.forEach((checkbox, index) => {
+        // Criando os checkboxes
+        checkboxTitles.forEach((title, index) => {
             const checkboxElement = document.createElement('input');
             checkboxElement.type = 'checkbox';
-            checkboxElement.id = `checkbox-${checkbox._id}`;
-            checkboxElement.checked = checkbox.checked; // Definindo o estado inicial
+            checkboxElement.id = `checkbox-${index}`;
+            checkboxElement.checked = data[title.replace(/\s+/g, '_').toLowerCase()]; // Definindo o estado inicial
 
             checkboxElement.addEventListener('change', async (event) => {
                 const isChecked = event.target.checked;
-                await updateCheckbox(checkbox._id, isChecked);
+                await updateCheckbox(title.replace(/\s+/g, '_').toLowerCase(), isChecked);
             });
 
             const label = document.createElement('label');
             label.htmlFor = checkboxElement.id;
-            label.textContent = checkboxTitles[index];
+            label.textContent = title;
 
             const div = document.createElement('div');
             div.classList.add('checkbox-item');
@@ -840,14 +841,14 @@ async function createCheckboxes() {
 }
 
 // Função para atualizar o estado do checkbox no servidor
-async function updateCheckbox(id, checked) {
+async function updateCheckbox(field, checked) {
     try {
-        const response = await fetch(`${apiURL}/${id}`, {
+        const response = await fetch(apiURL, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ checked })
+            body: JSON.stringify({ [field]: checked })
         });
 
         if (!response.ok) {
@@ -855,7 +856,7 @@ async function updateCheckbox(id, checked) {
         }
 
         const data = await response.json();
-        console.log(`Checkbox ${id} atualizado`, data);
+        console.log(`Campo ${field} atualizado`, data);
     } catch (error) {
         console.error('Erro ao atualizar o checkbox:', error);
     }
@@ -863,6 +864,7 @@ async function updateCheckbox(id, checked) {
 
 // Carrega os checkboxes ao iniciar a página
 createCheckboxes();
+
 </script>
 
 
