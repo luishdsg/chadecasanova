@@ -27,156 +27,20 @@
         height: 100vh;
     }
 
-    nav {
-        backdrop-filter: blur(40px);
+    ::-webkit-scrollbar {
+        width: 12px;
     }
 
-    .modal {
-        display: none;
-        /* Oculto por padrão */
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        /* Fundo transparente preto */
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        transition: opacity 0.5s ease;
-        /* Transição de fade-in/out */
+    ::-webkit-scrollbar-track {
+        background: rgba(255, 166, 0, 0);
     }
 
-    .modal.show {
-        display: flex;
-        /* Mostrar modal como flexbox para centralizar */
-        opacity: 1;
+    ::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.555);
+        border-radius: 20px;
     }
 
-    .modal-div {
-        backdrop-filter: blur(40px);
-        padding: 20px;
-        border-radius: 10px;
-        position: relative;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.808);
-        width: 100%;
-        max-width: 400px;
-        transform: translateY(-50px);
-        transition: transform 0.5s ease, opacity 0.5s ease;
-        /* Transição de movimento e fade */
-    }
 
-    .modal.show .modal-div {
-        transform: translateY(0);
-        /* Modal entra do topo para o centro */
-    }
-
-    .close {
-        position: absolute;
-        top: 10px;
-        right: 20px;
-        font-size: 1.5rem;
-        cursor: pointer;
-    }
-
-    .close:hover {
-        color: red;
-    }
-
-    .logo {
-        max-width: 250px;
-        display: block;
-        margin-left: 1em;
-        height: auto;
-    }
-
-    small {
-        color: lightgray;
-    }
-
-    .btn {
-        background-color: white;
-        padding: 1em 1.5em;
-        border-radius: 0.5rem;
-        text-decoration: none;
-    }
-
-    .btn i {
-        padding-right: 0.3em;
-    }
-
-    /* styler */
-    .back {
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-
-    .header-main {
-        background-image: url(https://images.homify.com/images/a_0,c_fill,f_auto,h_900,q_auto,w_1920/v1443545768/p/photo/image/953399/2015-0722_Thiago-Costoli-6830/fotos-de-salas-de-estar-moderno-castanho-por-flaviane-pereira.jpg);
-    }
-
-    .esquerda {
-        background-image: url(https://images.homify.com/v1444756842/p/photo/image/1000101/_JBF5198.jpg);
-
-    }
-
-    .h-400 {
-        height: 400px;
-    }
-
-    .h-700 {
-        height: 700px;
-    }
-
-    .h-100vh {
-        height: 100vh;
-    }
-</style>
-<style>
-    .s-regular {
-        font-family: "s", serif;
-        font-weight: 400;
-        font-style: normal;
-    }
-
-    .s-bold {
-        font-family: "Nanum Myeongjo", serif;
-        font-weight: 700;
-        font-style: normal;
-    }
-
-    .p-light {
-        font-family: "Poppins", sans-serif;
-        font-weight: 300;
-        font-style: normal;
-    }
-
-    .p-medium {
-        font-family: "Poppins", sans-serif;
-        font-weight: 500;
-        font-style: normal;
-    }
-
-    .p-bold {
-        font-family: "Poppins", sans-serif;
-        font-weight: 700;
-        font-style: normal;
-    }
-
-    .mt-10 {
-        margin-top: 10em
-    }
-
-    .shadow-text {
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.644);
-    }
-
-    .mapa {
-        background-color: #ede7e0;
-    }
-</style>
-<style>
     body .footer {
         z-index: 1;
         --footer-background: #c1a07b;
@@ -301,6 +165,160 @@
         }
     }
 
+    nav {
+        backdrop-filter: blur(40px);
+    }
+
+    small {
+        color: lightgray;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* Fundo transparente preto */
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+        transition: opacity 0.5s ease;
+        /* Transição de fade-in/out */
+    }
+
+    .modal.show {
+        display: flex;
+        /* Mostrar modal como flexbox para centralizar */
+        opacity: 1;
+    }
+
+    .modal-div {
+        backdrop-filter: blur(40px);
+        padding: 20px;
+        border-radius: 10px;
+        height: 100%;
+        max-height: 500px;
+        overflow-y: scroll;
+        position: relative;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.808);
+        width: 100%;
+        max-width: 400px;
+        transform: translateY(-50px);
+        transition: transform 0.5s ease, opacity 0.5s ease;
+        /* Transição de movimento e fade */
+    }
+
+    .modal.show .modal-div {
+        transform: translateY(0);
+        /* Modal entra do topo para o centro */
+    }
+
+    .close {
+        position: absolute;
+        top: 10px;
+        border-radius: 100px;
+        padding: 2px 4px 2px 4px;
+        background: rgba(255, 255, 255, 0.199);
+        right: 20px;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    .close:hover {
+        color: red;
+    }
+
+    .logo {
+        max-width: 250px;
+        display: block;
+        margin-left: 1em;
+        height: auto;
+    }
+
+    .btn {
+        background-color: white;
+        padding: 1em 1.5em;
+        border-radius: 0.5rem;
+        text-decoration: none;
+    }
+
+    .btn i {
+        padding-right: 0.3em;
+    }
+
+    /* styler */
+    .back {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .header-main {
+        background-image: url(https://images.homify.com/images/a_0,c_fill,f_auto,h_900,q_auto,w_1920/v1443545768/p/photo/image/953399/2015-0722_Thiago-Costoli-6830/fotos-de-salas-de-estar-moderno-castanho-por-flaviane-pereira.jpg);
+    }
+
+    .esquerda {
+        background-image: url(https://images.homify.com/v1444756842/p/photo/image/1000101/_JBF5198.jpg);
+
+    }
+
+    .h-400 {
+        height: 400px;
+    }
+
+    .h-700 {
+        height: 700px;
+    }
+
+    .h-100vh {
+        height: 100vh;
+    }
+
+
+    .s-regular {
+        font-family: "s", serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .s-bold {
+        font-family: "Nanum Myeongjo", serif;
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    .p-light {
+        font-family: "Poppins", sans-serif;
+        font-weight: 300;
+        font-style: normal;
+    }
+
+    .p-medium {
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+    }
+
+    .p-bold {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    .mt-10 {
+        margin-top: 10em
+    }
+
+    .shadow-text {
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.644);
+    }
+
+    .mapa {
+        background-color: #ede7e0;
+    }
+
 
 
     .checkbox-container {
@@ -316,25 +334,60 @@
     }
 
     .checkbox-item {
-        display: flex;
+        display: block;
+        background: rgba(255, 255, 255, 0.199);
         align-items: center;
+        padding: 2% 2%;
+        border-radius: 10px;
+        margin-top: 4%;
     }
 
     .checkbox-item input[type="checkbox"] {
         margin-right: 10px;
+        display: none;
         width: 20px;
         height: 20px;
         cursor: pointer;
     }
 
+    .checkbox-item input[type="checkbox"]:checked+label {
+        background: rgba(3, 104, 255, 0.582);
+    }
+
+
+
+    .checkbox-item input[type="text"] {
+        width: 100% !important;
+        padding: 2% 2% 2% 3%;
+        border-radius: 10px;
+        color: #ffffff;
+        outline: none;
+        background: none;
+        border: 1px solid rgba(255, 255, 255, 0.527);
+    }
+
+    .checkbox-item input[type="text"]::placeholder {
+        color: #ffffff;
+
+    }
+
+
     .checkbox-item label {
         font-size: 16px;
         color: #ffffff;
         cursor: pointer;
+        margin-bottom: 3%;
+        width: 100% !important;
+        background: rgba(255, 255, 255, 0.199);
+        padding: 2% 2% 2% 2%;
+        transition: .3s;
+        text-align: center;
+        border-radius: 10px;
     }
 
     .checkbox-item:hover label {
-        color: #007BFF;
+        background: rgba(0, 0, 0, 0.199);
+        transition: .3s;
     }
 </style>
 
@@ -744,8 +797,8 @@
 </body>
 <div id="modal" class="modal">
     <div class="modal-div">
-        <span id="closeModalBtn" class="close h2">&times;</span>
-        <p class="text-light h3">Selecione seu objeto de presente</p>
+        <span id="closeModalBtn" class="close h2"><i class="bi bi-x"></i></span>
+        <p class="text-light mt-5 text-center h3">Selecione seu objeto de presente e inclua seu nome</p>
         <div id="checkbox-container"></div>
     </div>
 </div>
@@ -776,102 +829,104 @@
     openModalBtn.addEventListener('click', () => {
         modal.style.display = 'flex';  // Mostra o modal antes da animação
     });
-    const apiURL = 'http://127.0.0.1:5000/item'; 
-    const apiURLs = 'http://127.0.0.1:5000/items'; 
-        const checkboxTitles = [
-            'Aparelho de jantar',
-            'Batedeira',
-            'Conjunto de pote de tempero',
-            'Conjunto para sobremesa',
-            'Conjunto de taças',
-            'Conjunto de Utensílios de cozinha',
-            'Conjunto de bacias',
-            'Grill',
-            'Jogo de toalha',
-            'Jogo de pano de prato',
-            'Jogo de cama',
-            'Jogo de tábuas de cortes',
-            'Jogo de potes herméticos',
-            'Kit Ferramentas',
-            'Liquidificador',
-            'Petisqueira de Vidro',
-            'Refratários',
-            'Tapetes'
-        ];
+    const apiURL = 'https://apicasa.onrender.com/item';
+    const checkboxTitles = [
+        'Aparelho de jantar',
+        'Batedeira',
+        'Conjunto de pote de tempero',
+        'Conjunto para sobremesa',
+        'Conjunto de taças',
+        'Conjunto de Utensílios de cozinha',
+        'Conjunto de bacias',
+        'Grill',
+        'Jogo de toalha',
+        'Jogo de pano de prato',
+        'Jogo de cama',
+        'Jogo de tábuas de cortes',
+        'Jogo de potes herméticos',
+        'Kit Ferramentas',
+        'Liquidificador',
+        'Petisqueira de Vidro',
+        'Refratários',
+        'Tapetes'
+    ];
 
-        // Função para criar os checkboxes e campos de nome
-        async function createCheckboxes() {
-            const container = document.getElementById('checkbox-container');
-            container.innerHTML = ''; // Limpa o container
+    async function createCheckboxes() {
+        const container = document.getElementById('checkbox-container');
+        container.innerHTML = ''; // Limpa o container
 
-            try {
-                const response = await fetch(apiURLs);
-                if (!response.ok) {
-                    throw new Error('Erro ao carregar os checkboxes');
-                }
-
-                const data = await response.json();
-
-                // Criando os checkboxes e inputs de nome
-                data.forEach((item, index) => {
-                    const title = checkboxTitles[index];
-                    const field = title.replace(/\s+/g, '_').toLowerCase();
-                    
-                    // Checkbox
-                    const checkboxElement = document.createElement('input');
-                    checkboxElement.type = 'checkbox';
-                    checkboxElement.id = `checkbox-${index}`;
-                    checkboxElement.checked = item[field] || false;  // Definindo o estado inicial
-
-                    checkboxElement.addEventListener('change', async (event) => {
-                        const isChecked = event.target.checked;
-                        await updateItem(item._id, field, isChecked, null);
-                    });
-
-                    // Input de nome
-                    const nameInput = document.createElement('input');
-                    nameInput.type = 'text';
-                    nameInput.id = `name-input-${index}`;
-                    nameInput.placeholder = 'Insira o nome aqui';
-                    nameInput.value = item.name || '';  // Preenchendo com o nome existente, se houver
-
-                    nameInput.addEventListener('blur', async (event) => {
-                        const nameValue = event.target.value;
-                        await updateItem(item._id, null, null, nameValue);  // Atualizando apenas o nome
-                    });
-
-                    const label = document.createElement('label');
-                    label.htmlFor = checkboxElement.id;
-                    label.textContent = title;
-
-                    const div = document.createElement('div');
-                    div.classList.add('checkbox-item');
-                    div.appendChild(checkboxElement);
-                    div.appendChild(label);
-                    div.appendChild(nameInput);
-
-                    container.appendChild(div);
-                });
-            } catch (error) {
-                console.error('Erro ao criar checkboxes:', error);
+        try {
+            const response = await fetch(apiURL);
+            if (!response.ok) {
+                throw new Error('Erro ao carregar os checkboxes');
             }
+
+            const data = await response.json();
+
+            // Criando os checkboxes e inputs de nome
+            data.forEach((item, index) => {
+                const title = checkboxTitles[index];
+                const field = title.replace(/\s+/g, '_').toLowerCase();
+
+                // Checkbox
+                const checkboxElement = document.createElement('input');
+                checkboxElement.type = 'checkbox';
+                checkboxElement.id = `checkbox-${index}`;
+                checkboxElement.checked = item.valor || false; // Definindo o estado inicial
+
+                // Input de nome
+                const nameInput = document.createElement('input');
+                nameInput.type = 'text';
+                nameInput.id = `name-input-${index}`;
+                nameInput.placeholder = 'Digite seu nome';
+                nameInput.value = item.name || ''; // Preenchendo com o nome existente, se houver
+
+                // Atualiza ao mudar o checkbox
+                checkboxElement.addEventListener('change', async (event) => {
+                    const isChecked = event.target.checked;
+                    await updateItem(item._id, isChecked, nameInput.value);
+                });
+
+                // Atualiza ao sair do campo de nome
+                nameInput.addEventListener('blur', async (event) => {
+                    const nameValue = event.target.value;
+                    await updateItem(item._id, checkboxElement.checked, nameValue);
+                });
+
+                const label = document.createElement('label');
+                label.htmlFor = checkboxElement.id;
+                label.textContent = title;
+
+                const div = document.createElement('div');
+                div.classList.add('checkbox-item');
+                div.appendChild(checkboxElement);
+                div.appendChild(label);
+                div.appendChild(nameInput);
+
+                container.appendChild(div);
+            });
+        } catch (error) {
+            console.error('Erro ao criar checkboxes:', error);
         }
+    }
 
-        // Função para atualizar o estado do checkbox e o nome no servidor
-        async function updateItem(documentId, field, checked, name) {
+    // Função para atualizar o estado do checkbox e o nome no servidor
+    async function updateItem(id, checked, name) {
+        // Apenas envia a atualização se o nome estiver preenchido
+        if (name.trim()) {
+            const payload = {
+                "_id": id,
+                "valor": checked,
+                "name": name
+            };
+
             try {
-                const updates = {};
-
-                // Verifica se está atualizando o checkbox ou o nome
-                if (field !== null) updates[field] = checked;
-                if (name !== null) updates['name'] = name;
-
-                const response = await fetch(`${apiURL}/${documentId}`, {
+                const response = await fetch(apiURL, {
                     method: 'PATCH',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(updates)
+                    body: JSON.stringify(payload)
                 });
 
                 if (!response.ok) {
@@ -879,14 +934,17 @@
                 }
 
                 const data = await response.json();
-                console.log(`Item ${documentId} atualizado com sucesso`, data);
+                console.log(`Item ${id} atualizado com sucesso`, data);
             } catch (error) {
                 console.error('Erro ao atualizar o item:', error);
             }
+        } else {
+            console.log('Nome não preenchido, atualização não enviada.');
         }
+    }
 
-        // Carrega os checkboxes ao iniciar a página
-        createCheckboxes();
+    // Carrega os checkboxes ao iniciar a página
+    createCheckboxes();
 
 </script>
 

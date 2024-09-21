@@ -1,0 +1,110 @@
+[
+    {
+        "_id": { "$oid": "5f50d5a51e6f7e001fb4f29a" },
+        "opt": "aparelho_de_jantar",
+        "name": "",
+        "valor": false
+    },
+    {
+        "_id": { "$oid": "5f50d5a51e6f7e001fb4f29b" },
+        "opt": "batedeira",
+        "name": "",
+        "valor": false
+    },
+    {
+        "_id": { "$oid": "5f50d5a51e6f7e001fb4f29c" },
+        "opt": "conjunto_de_pote_de_tempero",
+        "name": "",
+        "valor": false
+    },
+    {
+        "_id": { "$oid": "5f50d5a51e6f7e001fb4f29d" },
+        "opt": "conjunto_para_sobremesa",
+        "name": "",
+        "valor": false
+    },
+    {
+        "_id": { "$oid": "5f50d5a51e6f7e001fb4f29e" },
+        "opt": "conjunto_de_tacas",
+        "name": "",
+        "valor": false
+    },
+    {
+        "_id": { "$oid": "5f50d5a51e6f7e001fb4f29f" },
+        "opt": "conjunto_de_utensilios_de_cozinha",
+        "name": "",
+        "valor": false
+    },
+    {
+        "_id": { "$oid": "5f50d5a51e6f7e001fb4f2a0" },
+        "opt": "conjunto_de_bacias",
+        "name": "",
+        "valor": false
+    },
+    {
+        "_id": { "$oid": "5f50d5a51e6f7e001fb4f2a1" },
+        "opt": "grill",
+        "name": "",
+        "valor": false
+    },
+    {
+        "_id": { "$oid": "5f50d5a51e6f7e001fb4f2a2" },
+        "opt": "jogo_de_toalha",
+        "name": "",
+        "valor": false
+    },
+    {
+        "_id": { "$oid": "5f50d5a51e6f7e001fb4f2a3" },
+        "opt": "jogo_de_pano_de_prato",
+        "name": "",
+        "valor": false
+    },
+    {
+        "_id": { "$oid": "5f50d5a51e6f7e001fb4f2a4" },
+        "opt": "jogo_de_cama",
+        "name": "",
+        "valor": false
+    },
+    {
+        "_id": { "$oid": "5f50d5a51e6f7e001fb4f2a5" },
+        "opt": "jogo_de_tabuas_de_cortes",
+        "name": "",
+        "valor": false
+    },
+    {
+        "_id": { "$oid": "5f50d5a51e6f7e001fb4f2a6" },
+        "opt": "jogo_de_potes_hermeticos",
+        "name": "",
+        "valor": false
+    },
+    {
+        "_id": { "$oid": "5f50d5a51e6f7e001fb4f2a7" },
+        "opt": "kit_ferramentas",
+        "name": "",
+        "valor": false
+    },
+    {
+        "_id": { "$oid": "5f50d5a51e6f7e001fb4f2a8" },
+        "opt": "liquidificador",
+        "name": "",
+        "valor": false
+    },
+    {
+        "_id": { "$oid": "5f50d5a51e6f7e001fb4f2a9" },
+        "opt": "petisqueira_de_vidro",
+        "name": "",
+        "valor": false
+    },
+    {
+        "_id": { "$oid": "5f50d5a51e6f7e001fb4f2aa" },
+        "opt": "refratarios",
+        "name": "",
+        "valor": false
+    },
+    {
+        "_id": { "$oid": "5f50d5a51e6f7e001fb4f2ab" },
+        "opt": "tapetes",
+        "name": "",
+        "valor": false
+    }
+]
