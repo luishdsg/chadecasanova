@@ -359,7 +359,7 @@
             <div class="col mt-10 text-center">
                 <p class="h1 shadow-text text-light mt-5 s-bold">Chá de casa nova </p>
                 <p class="h1 shadow-text text-light s-bold">QC 01 CONJ. M CASA 01 <BR> SANTA-MARIA-DF</p>
-                    <p class="h1 shadow-text text-light s-bold">11 de setembro de 2021 as 11:20am</p>
+                <p class="h1 shadow-text text-light s-bold">11 de setembro de 2021 as 11:20am</p>
             </div>
         </div>
     </header>
@@ -747,7 +747,6 @@
         <span id="closeModalBtn" class="close h2">&times;</span>
         <p class="text-light h3">Selecione seu objeto de presente</p>
         <div id="checkbox-container"></div>
-
     </div>
 </div>
 <script>
@@ -778,46 +777,55 @@
         modal.style.display = 'flex';  // Mostra o modal antes da animação
     });
 
-    const apiURL = 'http://localhost:3000/checkboxes';
+    const apiURL = 'https://apicasa-2.onrender.com/item/66ee2b804bf4f95f5865e58e';
     const checkboxTitles = [
-        'Aparelho de jantar',
-        'Batedeira',
-        'Conjunto de pote de tempero',
-        'Conjunto para sobremesa',
-        'Conjunto de taças',
-        'Conjunto de Utensílios de cozinha',
-        'Conjunto de bacias',
-        'Grill',
-        'Jogo de toalha',
-        'Jogo de pano de prato',
-        'Jogo de cama',
-        'Jogo de tábuas de cortes',
-        'Jogo de potes herméticos',
-        'Kit Ferramentas',
-        'Liquidificador',
-        'Petisqueira de Vidro',
-        'Refratários',
-        'Tapetes'
-    ];
-    // Função para criar os checkboxes
-    function createCheckboxes(checkboxes) {
-        const container = document.getElementById('checkbox-container');
+    'Aparelho de jantar',
+    'Batedeira',
+    'Conjunto de pote de tempero',
+    'Conjunto para sobremesa',
+    'Conjunto de taças',
+    'Conjunto de Utensílios de cozinha',
+    'Conjunto de bacias',
+    'Grill',
+    'Jogo de toalha',
+    'Jogo de pano de prato',
+    'Jogo de cama',
+    'Jogo de tábuas de cortes',
+    'Jogo de potes herméticos',
+    'Kit Ferramentas',
+    'Liquidificador',
+    'Petisqueira de Vidro',
+    'Refratários',
+    'Tapetes'
+];
+
+// Função para criar os checkboxes
+async function createCheckboxes() {
+    const container = document.getElementById('checkbox-container');
+    container.innerHTML = ''; // Limpa o container
+
+    try {
+        const response = await fetch(apiURL);
+        if (!response.ok) {
+            throw new Error('Erro ao carregar os checkboxes');
+        }
+
+        const checkboxes = await response.json();
 
         checkboxes.forEach((checkbox, index) => {
             const checkboxElement = document.createElement('input');
             checkboxElement.type = 'checkbox';
-            checkboxElement.id = `checkbox-${checkbox.id}`;
-            checkboxElement.checked = checkbox.checked;
+            checkboxElement.id = `checkbox-${checkbox._id}`;
+            checkboxElement.checked = checkbox.checked; // Definindo o estado inicial
 
-            // Prevenir o comportamento padrão de recarregar a página
-            checkboxElement.addEventListener('change', (event) => {
-                event.preventDefault();
-                updateCheckbox(checkbox.id, event.target.checked);
+            checkboxElement.addEventListener('change', async (event) => {
+                const isChecked = event.target.checked;
+                await updateCheckbox(checkbox._id, isChecked);
             });
 
             const label = document.createElement('label');
-            label.htmlFor = `checkbox-${checkbox.id}`;
-            label.textContent = checkboxTitles[index]; // Título apropriado
+            label.htmlFor = checkboxElement.id;
+            label.textContent = checkboxTitles[index];
 
             const div = document.createElement('div');
             div.classList.add('checkbox-item');
@@ -826,39 +834,35 @@
 
             container.appendChild(div);
         });
+    } catch (error) {
+        console.error('Erro ao criar checkboxes:', error);
     }
+}
 
-    // Função para atualizar o estado do checkbox no servidor
-    function updateCheckbox(id, checked) {
-        fetch(`${apiURL}/${id}`, {
+// Função para atualizar o estado do checkbox no servidor
+async function updateCheckbox(id, checked) {
+    try {
+        const response = await fetch(`${apiURL}/${id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ checked })
-        })
-            .then(response => response.json())
-            .then(data => console.log(`Checkbox ${id} atualizado`, data))
-            .catch(error => console.error('Erro ao atualizar o checkbox:', error));
-    }
-    // Função para carregar os checkboxes
-    function loadCheckboxes() {
-        fetch(apiURL)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Erro ao carregar os checkboxes');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log("Dados carregados:", data);
-                createCheckboxes(data);
-            })
-            .catch(error => console.error('Erro ao carregar os checkboxes:', error));
-    }
+        });
 
-    // Carrega os checkboxes ao iniciar a página
-    loadCheckboxes();
+        if (!response.ok) {
+            throw new Error('Erro ao atualizar o checkbox');
+        }
+
+        const data = await response.json();
+        console.log(`Checkbox ${id} atualizado`, data);
+    } catch (error) {
+        console.error('Erro ao atualizar o checkbox:', error);
+    }
+}
+
+// Carrega os checkboxes ao iniciar a página
+createCheckboxes();
 </script>
 
 
